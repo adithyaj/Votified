@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('upcoming', {'packages':['geochart']});
+        google.charts.setOnLoadCallback(drawRegionsMap);
+
+        function drawRegionsMap() {
+          var data = new google.visualization.DataTable();
+          var state_votes = #{@state_votes};
+          data.addRows(50);
+          data.addColumn('string', 'State');
+          data.addColumn('number', 'Yeas');
+          data.addColumn('number', 'Nays');
+
+          for (var i = 0; i < 50; i++)
+          {
+            data.setValue(i, 0, state_votes[i][0]);
+            data.setValue(i, 1, state_votes[i][1]);
+            data.setValue(i, 2, state_votes[i][2]);
+          }
+
+          var options = {
+            region: 'US', // North America is 021
+            colorAxis: {colors: ['#e31b23', '#00853f']},
+            backgroundColor: '#81d4fa',
+            datalessRegionColor: '#f5deb3', // wheat
+            defaultColor: '#f5f5f5',
+            resolution: "provinces",
+          };
+
+          var chart = new google.visualization.GeoChart(document.getElementById('geochart-colors'));
+          chart.draw(data, options);
+        };
+    </script>
+  </head>
+  <body>
+    <div id="geochart-colors" style="width: 700px; height: 433px;"></div>
+  </body>
+</html>

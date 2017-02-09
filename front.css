@@ -1,0 +1,43 @@
+body {
+    background-image: url("America.jpg");
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size:cover;
+    background-attachment: fixed;
+}
+#Title{
+    color: #ffffff;
+    padding: 25px;
+    background-color: rgba(212, 220, 212, .8);
+    text-align: center;
+    font-family:"Book Antiqua", Palatino, serif;
+    font-size: 8em;
+    font-weight: bold;
+}
+#SubTitle{
+    color: gainsboro;
+    padding: 0px;
+    text-align: center;
+    font-size: 1.5em;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+li{
+    float: right;
+}
+li a{
+    display: block;
+    color: white;
+    text-align: center;
+    font-family:inherit;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover{
+    background-color: #111;
+}
